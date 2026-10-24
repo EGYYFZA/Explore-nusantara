@@ -2,7 +2,7 @@
 
 Explore Indonesian provinces, regencies, and districts through searchable filters, a 3D map, and local photography.
 
-[Live website](https://explorenusantara.vercel.app/)
+[Live website](https://explore-nusantara-indonesia.vercel.app/)
 
 ## Features
 
