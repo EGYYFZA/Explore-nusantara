@@ -27,7 +27,7 @@ export default function FilterPage() {
       <a className="skip-link" href="#filters">Langsung ke filter</a>
       <main className="explorer-page">
         <section className="filter-section" aria-labelledby="page-title">
-          <h1 id="page-title">Nusantara<span>.</span></h1>
+          <h1 id="page-title">Explore Nusantara<span>.</span></h1>
           <div className="region-fields" id="filters" role="group" aria-label="Filter wilayah">
             <RegionSelect id="province" label="Provinsi" placeholder="Semua provinsi" options={data.Provinces}
               value={province?.id} onChange={selectProvince} />

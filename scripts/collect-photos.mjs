@@ -4,7 +4,7 @@ import { commonsPhoto } from '../src/commons.ts';
 const topics = JSON.parse(await fs.readFile('scripts/photo-topics.json', 'utf8'));
 const data = JSON.parse(await fs.readFile('public/data/indonesia_regions.json', 'utf8'));
 const photos = JSON.parse(await fs.readFile('src/data/photos.json', 'utf8'));
-const headers = { 'User-Agent': 'NusantaraExplorer/1.0 (https://github.com/EGYYFZA/frontend-assesment-kledo)' };
+const headers = { 'User-Agent': 'ExploreNusantara/1.0 (https://github.com/EGYYFZA/Explore-nusantara)' };
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 async function request(url) {
