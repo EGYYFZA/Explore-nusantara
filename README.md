@@ -1,6 +1,6 @@
-# Nusantara — Indonesia Region Explorer
+# Explore Nusantara
 
-A frontend assessment project for PT Kledo: explore Indonesian provinces, regencies, and districts using dependent filters.
+Explore Indonesian provinces, regencies, and districts through searchable filters, a 3D map, and local photography.
 
 [Live demo](https://frontend-assesment-kledo.vercel.app/)
 
@@ -34,7 +34,7 @@ npm run lint
 npm test
 ```
 
-The region data is stored in `public/data/indonesia_regions.json`. This project is a frontend assessment, not an official Kledo product.
+The region data is stored in `public/data/indonesia_regions.json`.
 
 Use Node.js 24 (also used in CI). The national dataset comes from [nekoding/wilayah-indonesia](https://github.com/nekoding/wilayah-indonesia) under the [MIT license](public/data/licenses/wilayah-indonesia-MIT.txt), pinned to commit `02bdc8fd3b06dcb6a393731509f6865b9bb4d8d3`. See [import provenance](public/data/regions-source.json). Province/city points represent capitals; district points are polygon centroids. Bounding boxes frame the map; the app does not draw administrative boundaries. Old assessment URLs remain supported alongside the new official-code IDs.
 
