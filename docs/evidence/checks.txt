@@ -1,0 +1,19 @@
+Minimal-layout revision verification
+
+6 Node tests: passed.
+ESLint: passed.
+TypeScript + Vite production build: passed.
+Vite retains its warning for the separately loaded MapLibre renderer chunk.
+Lighthouse snapshot accessibility: 100 desktop, 100 mobile.
+Responsive checks: 1440x900, 390x844, 375x812, 844x390; no horizontal overflow.
+UI: no navbar, filters above map, dependent selection/URL/location/gallery scope checked, 2D toggle checked, photo modal Tab/Escape/focus restoration checked.
+No new dependencies; vulnerability audit was not rerun for this visual-only revision.
+
+National data/gallery expansion verification
+
+13 Node tests: passed.
+ESLint: passed.
+TypeScript + Vite production build: passed (chunk-size warning retained).
+38 provinces, 514 regencies/cities, 7,285 districts; 126 local photos with at least three per province.
+Desktop/mobile, map cluster and point selection, live nearby photos, photo service failure/retry, and viewer keyboard/focus checks recorded in national-report.json.
+Lighthouse and physical-device testing were not repeated.

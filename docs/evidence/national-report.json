@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-24",
+  "scope": "National region dataset and expanded attributed photography; retain the minimal layout and centered filters.",
+  "data": {
+    "provinces": 38,
+    "regencies": 514,
+    "districts": 7285,
+    "localPhotos": 126,
+    "minimumPhotosPerProvince": 3,
+    "provenance": "public/data/regions-source.json",
+    "license": "public/data/licenses/wilayah-indonesia-MIT.txt",
+    "photoCredits": "docs/photo-credits.md"
+  },
+  "automated": {
+    "nodeTests": "13 passed: national counts, centers/bounds, parent relationships, legacy and official URL IDs, gallery fallback for every district, local photo assets and attribution, payload rejection, SQL COPY parser, EWKB byte orders, source conversion, Commons licenses/URLs, radius query, and API/HTTP/abort errors.",
+    "lint": "Passed",
+    "productionBuild": "Passed. Vite reports its chunk-size warning; the MapLibre renderer is loaded separately.",
+    "diffWhitespace": "git diff --check passed with Git's normal LF/CRLF conversion notices."
+  },
+  "browser": [
+    "1440x900: all 38 province choices; overview shows 126 photos, clustered province points and no horizontal overflow. Screenshot: national-desktop.jpg.",
+    "Cluster click expanded the map from zoom 4 to 5 and completed its movement. Clicking a province point updated the URL, native select, selected marker and gallery; checked Sumatera Utara and Papua Tengah.",
+    "390x844 mobile/touch: Papua Barat Daya > Kabupaten Sorong > Makbon selects have 39/7/31 options including their all-region entries, use 16px text and show no horizontal overflow. Screenshot: national-mobile.jpg.",
+    "Mocked Commons HTTP 503: three Papua Barat Daya local photos remained visible, the notice named their actual province, and Coba lagi caused a second request.",
+    "Opened the first Papua Barat Daya photo, pressed ArrowRight to reach Sorong view-1 (2 / 3), then Escape. The dialog closed and focus returned to the original photo button.",
+    "Live Commons query for Denpasar Selatan succeeded: 19 photos including the local Pantai Sanur photo plus 18 nearby photos, clearly labelled radius 10 km and Sekitar Denpasar Selatan. No browser console errors in this navigation."
+  ],
+  "limits": [
+    "Chromium and emulated mobile were checked; physical phones, Safari and Firefox were not.",
+    "This is a pinned source snapshot, not a live government registry. Capital/centroid points and bounding boxes are approximate geographical aids.",
+    "Nearby Commons images can cross administrative boundaries. Coverage, relevance, service uptime and image availability vary; local collections remain visible.",
+    "Local image metadata and place-name matches were reviewed and obvious wrong-location candidates removed. This is not an exhaustive geolocation audit of every photograph.",
+    "Lighthouse was not rerun for this data expansion; older Lighthouse artifacts belong to the preceding visual revision."
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-24",
+  "scope": "Type or choose within province, regency/city and district filters; preserve the minimal design and URL-driven selection.",
+  "automated": "14 Node tests, ESLint and TypeScript/Vite production build passed. The existing MapLibre chunk-size warning remains.",
+  "browserChecks": [
+    "Typed mixed-case, space-padded bALi; Enter selected province 51 and kept input focus.",
+    "Typed denpas and selected Kota Denpasar; Tab moved to the enabled district input. Typed selatan and selected Denpasar Selatan (517101).",
+    "An unmatched province query displayed Wilayah tidak ditemukan with no options. Enter did not change the URL; Escape restored Bali and closed the popup.",
+    "Clicked Jawa Tengah from the dropdown in a 390x844 mobile/touch viewport. The URL became province=33 and the previous city/district selections cleared.",
+    "After a keyboard check exposed hover interference, changed hover tracking to mouse movement. Rechecked: opening Jawa Timur retained it as the active option, ArrowDown highlighted Banten, and Enter selected province 36.",
+    "Back navigation restored the previous province name. Reset cleared the URL and disabled city/district filters.",
+    "Typed papua on mobile: six matching province options, popup within viewport, no horizontal overflow, 16px input font. Tab discarded unselected search text and closed the popup.",
+    "At 1440x900 all three inputs have 44px height and no horizontal overflow. Screenshots: searchable-desktop.jpg and searchable-mobile.jpg."
+  ],
+  "limits": "Checked Chromium with emulated mobile/touch; physical devices, screen readers, Safari and Firefox were not tested."
+}

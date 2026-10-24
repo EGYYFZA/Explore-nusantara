@@ -24,4 +24,5 @@ jobs:
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: npm audit --audit-level=moderate
       - run: npm run lint
+      - run: npm test
       - run: npm run build
