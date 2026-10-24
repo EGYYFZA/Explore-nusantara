@@ -1,0 +1,61 @@
+{
+  "contract": "docs/explorer-design.md: revised minimal Apple-inspired layout, centered filters above the map at every viewport, no navbar or promotional copy, retained location selection and attributed photography.",
+  "targetViewports": [
+    "1440x900",
+    "390x844"
+  ],
+  "accessibility": {
+    "status": "pass",
+    "evidence": "Current Lighthouse snapshots scored 100 on desktop and mobile. Native selects retain visible labels; disabled child controls and reset states were checked. Opened the redesigned photo viewer, tabbed within the native dialog, closed it with Escape, and verified focus returned to the photo button. The existing reduced-motion implementation is retained; no new animation was added."
+  },
+  "responsive": {
+    "status": "pass",
+    "evidence": "Inspected current 1440x900 and 390x844 screenshots, with additional 375x812 and 844x390 layout checks. No horizontal overflow. Filters precede the map in DOM and visual order at all sizes. Mobile selects use 16px text. Denpasar Selatan and Kota Denpasar fit the narrow layout."
+  },
+  "contentStates": {
+    "loading": {
+      "status": "pass",
+      "evidence": "Loading structure is retained and its copy is shortened to Memuat wilayah / Memuat peta. The pending-fetch scenario was verified in the original implementation; it was not repeated for this visual revision."
+    },
+    "empty": {
+      "status": "pass",
+      "evidence": "The current initial overview shows Semua provinsi, disabled city/district controls, disabled reset, Indonesia map and a representative gallery. Reset still clears the URL through the original selection handler."
+    },
+    "error": {
+      "status": "pass",
+      "evidence": "Map-only retry, WebGL failure, region HTTP failures and missing-photo fallback were verified before this visual revision; no failure-handling logic was changed. Current loader error handling passes the existing Node test. Error/loading messages were shortened while preserving recovery controls."
+    },
+    "partial": {
+      "status": "pass",
+      "evidence": "Selected Denpasar Selatan and verified the current map label and concise notice: Koleksi Kota Denpasar. Foto khusus Denpasar Selatan belum tersedia. Elevation fallback logic is unchanged."
+    },
+    "success": {
+      "status": "pass",
+      "evidence": "Selected province Bali, city Kota Denpasar, and district Denpasar Selatan; verified matching URL, filter values, map location and gallery scope. Switched to 2D and verified pressed state. The redesigned photo viewer still traps keyboard focus and restores it on Escape. All six existing Node tests pass."
+    },
+    "permission": {
+      "status": "not-applicable",
+      "reason": "The explorer does not request login, device location, uploads, or device permissions. Map tiles are public read-only resources; photos are served locally."
+    }
+  },
+  "renderedEvidence": [
+    {
+      "viewport": "1440x900",
+      "artifact": "desktop.jpg",
+      "observation": "Revised default overview: centered horizontal filter bar, full-width map, neutral palette, compact title and three-photo gallery. No navbar or promotional sections."
+    },
+    {
+      "viewport": "390x844",
+      "artifact": "mobile.jpg",
+      "observation": "Revised district selection: filters stacked above the map, 16px select values, concise parent-gallery notice and full-size photo card. No horizontal overflow. Visible blue keyboard focus on the photo button follows the modal focus-restoration check."
+    }
+  ],
+  "limits": [
+    "Browser verification used Chromium and emulated mobile/touch viewports; no physical-phone or Safari/Firefox testing.",
+    "Map rendering depends on public OpenFreeMap and AWS/Mapzen endpoints and WebGL support.",
+    "At this earlier visual revision the assessment data contained four provinces; it has since been replaced by the national dataset documented in national-report.json.",
+    "The production renderer chunk is approximately 1.07 MB before compression and is loaded separately; Vite reports its chunk-size warning.",
+    "Lighthouse SEO/agentic audits report missing robots.txt and llms.txt because Vite serves the SPA fallback; those unrelated additions were left out."
+  ],
+  "revision": "Historical visual-layout verification before the national-data expansion. See national-report.json for the current data/gallery verification."
+}

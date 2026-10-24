@@ -1,0 +1,11 @@
+{
+  "repository": "https://github.com/nekoding/wilayah-indonesia",
+  "commit": "02bdc8fd3b06dcb6a393731509f6865b9bb4d8d3",
+  "imported": "2026-10-24",
+  "counts": {
+    "provinces": 38,
+    "regencies": 514,
+    "districts": 7285
+  },
+  "coordinates": "Province/city capitals and district polygon centroids. Not administrative boundaries."
+}
