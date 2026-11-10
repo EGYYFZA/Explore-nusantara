@@ -1,4 +1,4 @@
-<a href="https://explore-nusantara-indonesia.vercel.app"><img src=".github/media/cover.png" alt="Explore Nusantara — indonesia region explorer" width="1280"></a>
+<a href="https://explore-nusantara-indonesia.vercel.app"><img src=".github/media/cover.png" alt="Explore Nusantara interactive map on the live website" width="1280"></a>
 
 # Explore Nusantara
 
