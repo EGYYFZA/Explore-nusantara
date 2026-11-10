@@ -1,56 +1,62 @@
+<a href="https://explore-nusantara-indonesia.vercel.app"><img src=".github/media/cover.png" alt="Explore Nusantara — indonesia region explorer" width="1280"></a>
+
 # Explore Nusantara
 
-Explore Indonesian provinces, regencies, and districts through searchable filters, a 3D map, and local photography.
+Explore Indonesian regions through searchable filters, an interactive 3D map and credited local photography.
 
-[Live website](https://explore-nusantara-indonesia.vercel.app/)
+**React · TypeScript · MapLibre · Vite** · Interactive region explorer
 
-## Features
+<table><tr><td>
 
-- 38 provinces, 514 regencies/cities and 7,285 districts, served from a local dataset
-- Searchable region filters: type part of a name or choose from the list; use arrow keys and Enter to select, Escape to cancel
-- Selection state stored in URL search parameters
-- Responsive interface and location breadcrumbs
-- Interactive MapLibre map with real elevation terrain, 2D/3D modes and location flights
-- 126 local Wikimedia Commons photos covering every province, with author/license/source credits
-- Additional nearby Commons photos for selected cities/districts, with a keyboard-accessible photo viewer
-- Reduced-motion support and independent map failure recovery
+### Open the website
 
-## Stack
+**[explore-nusantara-indonesia.vercel.app](https://explore-nusantara-indonesia.vercel.app)**
 
-React, TypeScript, React Router, Tailwind CSS, Vite, MapLibre GL JS, and Motion.
+The public demo is available in your browser. Scan the QR to open it on another device.
 
-## Development
+</td><td align="center" width="220"><a href="https://explore-nusantara-indonesia.vercel.app"><img src=".github/media/website-qr.png" alt="Scan to open https://explore-nusantara-indonesia.vercel.app" width="180"></a><br><sub>Direct website link</sub></td></tr></table>
+
+## Explore by place
+
+- Search provinces, regencies/cities and districts with keyboard-friendly filters.
+- Share a selection through URL search parameters.
+- Switch between 2D and terrain views and fly to the selected place.
+- Browse local photographs and nearby Wikimedia Commons images with source credits.
+- Keep using filters and local photos if the map or photo service is unavailable.
+
+## Run locally
+
+Use **Node.js 24**.
 
 ```sh
+git clone https://github.com/EGYYFZA/Explore-nusantara.git
+cd Explore-nusantara
 npm ci
 npm run dev
 ```
 
-## Checks
+Open the URL printed by Vite, usually **http://localhost:5173**.
 
 ```sh
-npm run build
 npm run lint
 npm test
+npm run build
 ```
 
-The region data is stored in `public/data/indonesia_regions.json`.
+## Data and map notes
 
-Use Node.js 24 (also used in CI). The national dataset comes from [nekoding/wilayah-indonesia](https://github.com/nekoding/wilayah-indonesia) under the [MIT license](public/data/licenses/wilayah-indonesia-MIT.txt), pinned to commit `02bdc8fd3b06dcb6a393731509f6865b9bb4d8d3`. See [import provenance](public/data/regions-source.json). Province/city points represent capitals; district points are polygon centroids. Bounding boxes frame the map; the app does not draw administrative boundaries. Old assessment URLs remain supported alongside the new official-code IDs.
+The local dataset contains 38 provinces, 514 regencies/cities and 7,285 districts.
+It comes from [nekoding/wilayah-indonesia](https://github.com/nekoding/wilayah-indonesia),
+with pinned [import provenance](public/data/regions-source.json) and its
+[MIT notice](public/data/licenses/wilayah-indonesia-MIT.txt).
 
-Every province has at least three local photographs. City/district selections additionally query Wikimedia Commons within **10 km of the representative point**; this is not an administrative-boundary search. Nearby photos are labelled “Sekitar”, while local photos retain their actual collection area. Empty, unavailable or slow photo services retain the local city/province collection. Available images vary by location.
+The map uses OpenFreeMap/OpenStreetMap and Mapzen terrain. Internet access and
+WebGL are required for map rendering; no API key or location permission is needed.
+Representative points are not administrative boundaries. Nearby-photo searches
+cover a 10 km radius around the selected point and may return no results.
 
-To reproduce the pinned data import or resume collecting photos (network required):
+## Photography
 
-```sh
-node scripts/import-regions.mjs
-node scripts/collect-photos.mjs
-```
-
-The importer reads SQL COPY records as data without executing SQL. The photo collector requests Commons sequentially, validates image/license metadata, skips existing files and resumes incomplete collections. Review downloaded photos for ambiguous place names before adding them to the collection; search metadata alone cannot verify location. Topic queries are in `scripts/photo-topics.json`.
-
-The basemap uses OpenFreeMap/OpenStreetMap and terrain uses Mapzen Terrain Tiles on AWS; an internet connection and WebGL are needed. No API key or geolocation permission is required. Terrain is exaggerated 1.5× for visual exploration. Local filters and photos remain usable when map services fail. MapLibre is loaded as a separate chunk; its renderer and worker are larger than the main application.
-
-See [design research and scope](docs/explorer-design.md) and [photograph credits](docs/photo-credits.md). Each photo viewer includes author, license, and original source links. Gallery previews use CSS cropping; the viewer preserves the full photograph.
-
-See [SECURITY.md](SECURITY.md).
+The collection includes 126 local Wikimedia Commons images. Author, license and
+source links appear in the viewer and [photo credits](docs/photo-credits.md).
+Review those terms before reusing individual photographs. See [SECURITY.md](SECURITY.md).
